@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>VENTILOS - Blasmusik ohne Scheuklappen</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;700;800;900&amp;family=Hanken+Grotesk:wght@400;600&amp;family=JetBrains+Mono:wght@700&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffe322",
+                        "on-background": "#e5e2e1",
+                        "outline-variant": "#4b4732",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-primary-container": "#6a5d00",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-fixed-variant": "#514700",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary": "#00363d",
+                        "on-primary-fixed": "#201c00",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "surface-container": "#201f1f",
+                        "tertiary-fixed-dim": "#46d8ee",
+                        "primary-fixed-dim": "#e0c700",
+                        "surface-tint": "#e0c700",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#5ce9ff",
+                        "primary": "#fff3c0",
+                        "background": "#131313",
+                        "outline": "#979178",
+                        "on-secondary": "#2f3131",
+                        "primary-container": "#f2d70b",
+                        "tertiary": "#daf9ff",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "inverse-on-surface": "#313030",
+                        "surface-bright": "#393939",
+                        "secondary-container": "#454747",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#9bf0ff",
+                        "on-tertiary-container": "#006773",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#cec7ab",
+                        "on-tertiary-fixed": "#001f24",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353534",
+                        "deep-black": "#000000",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-variant": "#353534",
+                        "inverse-primary": "#6b5f00",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#c6c6c7",
+                        "surface": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#383000",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-secondary-container": "#b4b5b5",
+                        "error-container": "#93000a",
+                        "staged-gray": "#242424",
+                        "brass-gold": "#f2d70b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Anybody"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Anybody"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-xl": ["Anybody"],
+                        "headline-md": ["Anybody"],
+                        "button-text": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+                        "headline-md": ["24px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "button-text": ["16px", { "lineHeight": "20px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .color-scheme-dark {
+            color-scheme: dark;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md overflow-x-hidden antialiased">
+    <!-- Top Navigation -->
+    <nav
+        class="fixed top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base max-w-full mx-auto bg-deep-black border-b border-brass-gold/20 docked full-width">
+        <a class="font-headline-md text-headline-md font-black text-brass-gold uppercase tracking-tighter" href="#home">
+            <img alt="Ventilos Logo" class="h-8 md:h-10 w-auto object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQZsSsQRT001h-d8zw2dFnEvRgwldDMaSD2bbuYYTmbXtz83KuW2iNSum5Nh490pI24X_6fkDPLWCwMXflH6bbT_68Ldx-1L0sqntm8rKQSMtchtT8btEupbHuF3N7gKD0JhUZo-QdL6FniS01s5i68YETk00SCe8a51oxIR_HrxWU7D0WdYr-_obHvR1Ze9qgDuP21bmsUQU2FUzHf6nYO1j7qVwewrT83SjxlrkdLG-Wb18cu3z9VpRhPV8-CpAa3Dc">
+        </a>
+        <div class="hidden md:flex gap-gutter items-center">
+            <a class="text-on-secondary-container hover:text-brass-gold transition-colors font-button-text text-button-text"
+                href="#tour">Tour</a>
+            <a class="text-on-secondary-container hover:text-brass-gold transition-colors font-button-text text-button-text"
+                href="#band">Band</a>
+            <a class="text-on-secondary-container hover:text-brass-gold transition-colors font-button-text text-button-text"
+                href="#galerie">Galerie</a>
+            <a class="text-on-secondary-container hover:text-brass-gold transition-colors font-button-text text-button-text"
+                href="#instagram">Instagram</a>
+            <a class="text-on-secondary-container hover:text-brass-gold transition-colors font-button-text text-button-text"
+                href="#kontakt">Kontakt</a>
+            <a class="bg-brass-gold text-deep-black font-button-text text-button-text px-6 py-3 rounded uppercase font-bold hover:bg-white transition-colors duration-300"
+                href="#kontakt">
+                Booking
+            </a>
+        </div>
+        <!-- Mobile Menu Button (Icon only) -->
+        <button class="md:hidden text-brass-gold" id="mobile-menu-btn" aria-label="Menü öffnen">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu"
+        class="hidden md:hidden fixed inset-0 z-40 bg-deep-black/95 pt-20 px-8 flex flex-col gap-6 text-xl">
+        <a class="text-on-background hover:text-brass-gold transition-colors py-2 border-b border-outline/20 font-headline-md uppercase"
+            href="#tour" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Tour</a>
+        <a class="text-on-background hover:text-brass-gold transition-colors py-2 border-b border-outline/20 font-headline-md uppercase"
+            href="#band" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Band</a>
+        <a class="text-on-background hover:text-brass-gold transition-colors py-2 border-b border-outline/20 font-headline-md uppercase"
+            href="#galerie" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Galerie</a>
+        <a class="text-on-background hover:text-brass-gold transition-colors py-2 border-b border-outline/20 font-headline-md uppercase"
+            href="#instagram" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Instagram</a>
+        <a class="text-on-background hover:text-brass-gold transition-colors py-2 border-b border-outline/20 font-headline-md uppercase"
+            href="#kontakt" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kontakt</a>
+        <a class="bg-brass-gold text-deep-black text-center py-3 rounded uppercase font-bold tracking-wider mt-4"
+            href="#kontakt" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Booking</a>
+    </div>
+
+    <main>
+        <!-- 1. Home Section -->
+        <section class="relative min-h-screen flex flex-col justify-center pt-24 pb-section-gap" id="home">
+            <!-- Background Image Area -->
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover opacity-30 mix-blend-luminosity" alt="Stage shot live brass band"
+                    src="assets/images/startseite-hintergrund.jpg">
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+            </div>
+            <div
+                class="relative z-10 container mx-auto px-margin-mobile md:px-margin-desktop flex flex-col items-start gap-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between w-full gap-8">
+                    <h1
+                        class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-brass-gold uppercase break-words max-w-4xl leading-none">
+                        BLASMUSIK<br><span class="text-on-background">OHNE</span><br>SCHEUKLAPPEN
+                    </h1>
+                    <div class="hidden md:block w-48 h-48 flex-shrink-0">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzHkvrUtx2XdkH-7HqVWyrsx5YjlLyAyFCywvYNFj1cqHBm7TeGOc9gOk88nsn4DXbLQSz2SLECP4lRaUuX5yX0jIN10Vk994l028zWgNQNLl5dfm7XISNH4r1k26_VVf03DUt_1yVI4mE6Hg1Ksr8LZNZPnA-Ii-taCdcn6atL50u-UeEBbCd35WrirmYe2lUGPKhe_VCBqlS48OsJLT4-WvWF-OY80Wl48a001qgid0WibROP9T46Aeb8XCXvP04YKI"
+                            alt="Ventilos Circular Logo" class="w-full h-full object-contain">
+                    </div>
+                </div>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
+                    Energiegeladen, traditionell verwurzelt und modern interpretiert. Ventilos bringt den unverkennbaren
+                    Brass-Sound auf die Bühnen Europas.
+                </p>
+                <div class="mt-8">
+                    <a class="inline-block bg-brass-gold text-deep-black font-headline-md text-headline-md px-8 py-4 rounded-sm uppercase tracking-tight hover:bg-white transition-colors duration-300 border-2 border-transparent"
+                        href="#tour">
+                        Tour Dates Ansehen
+                    </a>
+                </div>
+            </div>
+
+            <!-- Wirtshaus Tour Preview Block -->
+            <div class="relative z-10 mt-auto pt-24 px-margin-mobile md:px-margin-desktop container mx-auto">
+                <div
+                    class="bg-staged-gray border border-outline/30 p-1 flex flex-col md:flex-row gap-0 group cursor-pointer hover:border-brass-gold transition-colors duration-300">
+                    <div class="md:w-1/3 relative h-64 md:h-auto overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                            alt="Wirtshaus Interior" src="assets/images/Wirtshaustour.jpg">
+                        <div
+                            class="absolute inset-0 bg-brass-gold/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 p-8 flex flex-col justify-center">
+                        <span class="font-label-caps text-label-caps text-brass-gold uppercase mb-4">Herbst 2026</span>
+                        <h3
+                            class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background uppercase mb-4 group-hover:text-brass-gold transition-colors">
+                            Wirtshaus Tour</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-lg">
+                            Zurück zu den Wurzeln. Wir tauschen große Bühnen gegen urige Stammtische und bringen die
+                            Wände zum Wackeln.
+                        </p>
+                        <div
+                            class="flex items-center text-brass-gold font-button-text text-button-text uppercase tracking-widest gap-2">
+                            <span>Tickets Sichern</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Tour Section -->
+        <section class="py-section-gap bg-background border-t border-outline/10" id="tour">
+            <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+                <div
+                    class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-brass-gold/30 pb-8">
+                    <div>
+                        <h2
+                            class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-brass-gold uppercase">
+                            Tour</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Live und in Farbe. Sei dabei.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Breezy Brass Tour -->
+                <div class="mb-24">
+                    <h3
+                        class="font-headline-md text-headline-md text-on-background uppercase mb-8 flex items-center gap-4">
+                        <span class="material-symbols-outlined text-brass-gold">festival</span>
+                        Breezy Brass Tour <span class="text-outline text-sm tracking-widest ml-2">SOMMER 26</span>
+                    </h3>
+                    <div class="flex flex-col gap-0 border-t border-outline/20">
+                        <!-- Event Row 1 -->
+                        <div
+                            class="flex flex-col md:flex-row md:items-center py-6 border-b border-outline/20 hover:bg-staged-gray transition-colors group">
+                            <div class="md:w-1/4 mb-2 md:mb-0"><span
+                                    class="font-label-caps text-brass-gold block text-2xl">15. JUNI 2026</span></div>
+                            <div class="md:w-2/4 mb-4 md:mb-0">
+                                <h4 class="font-headline-md text-on-background uppercase text-3xl">München</h4>
+                                <span class="font-body-md text-on-surface-variant block text-xl">Backstage Werk | Host:
+                                    Kulturverein München</span>
+                                <span class="font-label-caps text-brass-gold font-bold block mt-1 text-xl">Einlass:
+                                    19:00 Uhr, Beginn: 20:00 Uhr</span>
+                            </div>
+                            <div class="md:w-1/4 flex justify-start md:justify-end"></div>
+                        </div>
+                        <!-- Event Row 2 -->
+                        <div
+                            class="flex flex-col md:flex-row md:items-center py-6 border-b border-outline/20 hover:bg-staged-gray transition-colors group">
+                            <div class="md:w-1/4 mb-2 md:mb-0"><span
+                                    class="font-label-caps text-brass-gold block text-2xl">22. JUNI 2026</span></div>
+                            <div class="md:w-2/4 mb-4 md:mb-0">
+                                <h4 class="font-headline-md text-on-background uppercase text-3xl">Wien</h4>
+                                <span class="font-body-md text-on-surface-variant block text-xl">Arena (Open Air) |
+                                    Host: Arena Wien Kultur</span>
+                                <span class="font-label-caps text-brass-gold font-bold block mt-1 text-xl">Einlass:
+                                    18:30 Uhr, Beginn: 19:30 Uhr</span>
+                            </div>
+                            <div class="md:w-1/4 flex justify-start md:justify-end"></div>
+                        </div>
+                        <!-- Event Row 3 -->
+                        <div
+                            class="flex flex-col md:flex-row md:items-center py-6 border-b border-outline/20 hover:bg-staged-gray transition-colors group">
+                            <div class="md:w-1/4 mb-2 md:mb-0"><span
+                                    class="font-label-caps text-brass-gold block text-2xl">05. JULI 2026</span></div>
+                            <div class="md:w-2/4 mb-4 md:mb-0">
+                                <h4 class="font-headline-md text-on-background uppercase text-3xl">Berlin</h4>
+                                <span class="font-body-md text-on-surface-variant block text-xl">Festsaal Kreuzberg |
+                                    Host: Berlin Live</span>
+                                <span class="font-label-caps text-brass-gold font-bold block mt-1 text-xl">Einlass:
+                                    20:00 Uhr, Beginn: 21:00 Uhr</span>
+                            </div>
+                            <div class="md:w-1/4 flex justify-start md:justify-end"></div>
+                        </div>
+                        <!-- Event Row 4 -->
+                        <div
+                            class="flex flex-col md:flex-row md:items-center py-6 border-b border-outline/20 hover:bg-staged-gray transition-colors group">
+                            <div class="md:w-1/4 mb-2 md:mb-0"><span
+                                    class="font-label-caps text-brass-gold block text-2xl">12. JULI 2026</span></div>
+                            <div class="md:w-2/4 mb-4 md:mb-0">
+                                <h4 class="font-headline-md text-on-background uppercase text-3xl">Salzburg</h4>
+                                <span class="font-body-md text-on-surface-variant block text-xl">Rockhouse | Host:
+                                    Rockhouse Salzburg</span>
+                                <span class="font-label-caps text-brass-gold font-bold block mt-1 text-xl">Einlass:
+                                    19:00 Uhr, Beginn: 20:30 Uhr</span>
+                            </div>
+                            <div class="md:w-1/4 flex justify-start md:justify-end"></div>
+                        </div>
+                        <!-- Event Row 5 -->
+                        <div
+                            class="flex flex-col md:flex-row md:items-center py-6 border-b border-outline/20 hover:bg-staged-gray transition-colors group">
+                            <div class="md:w-1/4 mb-2 md:mb-0"><span
+                                    class="font-label-caps text-brass-gold block text-2xl">18. JULI 2026</span></div>
+                            <div class="md:w-2/4 mb-4 md:mb-0">
+                                <h4 class="font-headline-md text-on-background uppercase text-3xl">München</h4>
+                                <span class="font-body-md text-on-surface-variant block text-xl">Tollwood Festival |
+                                    Host: Tollwood GmbH</span>
+                                <span class="font-label-caps text-brass-gold font-bold block mt-1 text-xl">Einlass:
+                                    18:00 Uhr, Beginn: 19:00 Uhr</span>
+                            </div>
+                            <div class="md:w-1/4 flex justify-start md:justify-end"></div>
+                        </div>
+                        <!-- Event Row 6 -->
+                        <div
+                            class="flex flex-col md:flex-row md:items-center py-6 border-b border-outline/20 hover:bg-staged-gray transition-colors group">
+                            <div class="md:w-1/4 mb-2 md:mb-0"><span
+                                    class="font-label-caps text-brass-gold block text-2xl">25. JULI 2026</span></div>
+                            <div class="md:w-2/4 mb-4 md:mb-0">
+                                <h4 class="font-headline-md text-on-background uppercase text-3xl">Zürich</h4>
+                                <span class="font-body-md text-on-surface-variant block text-xl">Street Parade | Host:
+                                    Verein Street Parade</span>
+                                <span class="font-label-caps text-brass-gold font-bold block mt-1 text-xl">Einlass:
+                                    13:00 Uhr, Beginn: 14:00 Uhr</span>
+                            </div>
+                            <div class="md:w-1/4 flex justify-start md:justify-end"></div>
+                        </div>
+                        <!-- Event Row 7 -->
+                        <div
+                            class="flex flex-col md:flex-row md:items-center py-6 border-b border-outline/20 hover:bg-staged-gray transition-colors group">
+                            <div class="md:w-1/4 mb-2 md:mb-0"><span
+                                    class="font-label-caps text-brass-gold block text-2xl">01. AUGUST 2026</span></div>
+                            <div class="md:w-2/4 mb-4 md:mb-0">
+                                <h4 class="font-headline-md text-on-background uppercase text-3xl">Hamburg</h4>
+                                <span class="font-body-md text-on-surface-variant block text-xl">Elbjazz | Host: ELBJAZZ
+                                    GmbH</span>
+                                <span class="font-label-caps text-brass-gold font-bold block mt-1 text-xl">Einlass:
+                                    17:00 Uhr, Beginn: 18:30 Uhr</span>
+                            </div>
+                            <div class="md:w-1/4 flex justify-start md:justify-end"></div>
+                        </div>
+                        <!-- Event Row 8 -->
+                        <div
+                            class="flex flex-col md:flex-row md:items-center py-6 border-b border-outline/20 hover:bg-staged-gray transition-colors group">
+                            <div class="md:w-1/4 mb-2 md:mb-0"><span
+                                    class="font-label-caps text-brass-gold block text-2xl">15. AUGUST 2026</span></div>
+                            <div class="md:w-2/4 mb-4 md:mb-0">
+                                <h4 class="font-headline-md text-on-background uppercase text-3xl">Wien</h4>
+                                <span class="font-body-md text-on-surface-variant block text-xl">Donauinselfest | Host:
+                                    SPÖ Wien</span>
+                                <span class="font-label-caps text-brass-gold font-bold block mt-1 text-xl">Einlass:
+                                    16:00 Uhr, Beginn: 17:30 Uhr</span>
+                            </div>
+                            <div class="md:w-1/4 flex justify-start md:justify-end"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Band Section -->
+        <section class="py-section-gap bg-staged-gray border-t border-outline/10" id="band">
+            <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="mb-16">
+                    <span
+                        class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest block mb-4">Das
+                        Ensemble</span>
+                    <h2
+                        class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-background uppercase">
+                        Die Band</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mt-6 max-w-2xl">
+                        Acht Musiker, eine Mission: Den Staub von der Blasmusik blasen. Das ist Ventilos in voller
+                        Besetzung.
+                    </p>
+                </div>
+
+                <!-- Register Banners (stacked, container-wide with border and margin) -->
+                <div class="grid grid-cols-1 gap-gutter">
+                    <!-- Hohes Blech -->
+                    <div
+                        class="group relative aspect-video md:aspect-[21/9] overflow-hidden border border-outline/20 hover:border-brass-gold transition-colors duration-300 cursor-pointer">
+                        <img alt="Hohes Blech"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                            src="assets/images/hohes-blech.jpg">
+                        <!-- Persistent Title Overlay -->
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-deep-black/90 via-deep-black/50 to-transparent p-6 transition-opacity duration-300 group-hover:opacity-0">
+                            <h4
+                                class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest text-lg">
+                                Hohes Blech</h4>
+                        </div>
+                        <!-- Hover Names Overlay -->
+                        <div
+                            class="absolute inset-0 flex items-center justify-center bg-deep-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center px-4">
+                                <h4
+                                    class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest mb-2 text-lg">
+                                    Hohes Blech</h4>
+                                <p class="font-headline-md text-white font-bold text-2xl md:text-3xl">Max, Moritz,
+                                    Lukas, Anna</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tiefes Blech -->
+                    <div
+                        class="group relative aspect-video md:aspect-[21/9] overflow-hidden border border-outline/20 hover:border-brass-gold transition-colors duration-300 cursor-pointer">
+                        <img alt="Tiefes Blech"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                            src="assets/images/tiefes-blech.jpg">
+                        <!-- Persistent Title Overlay -->
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-deep-black/90 via-deep-black/50 to-transparent p-6 transition-opacity duration-300 group-hover:opacity-0">
+                            <h4
+                                class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest text-lg">
+                                Tiefes Blech</h4>
+                        </div>
+                        <!-- Hover Names Overlay -->
+                        <div
+                            class="absolute inset-0 flex items-center justify-center bg-deep-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center px-4">
+                                <h4
+                                    class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest mb-2 text-lg">
+                                    Tiefes Blech</h4>
+                                <p class="font-headline-md text-white font-bold text-2xl md:text-3xl">Hannes, Sebi,
+                                    Jonas, Felix</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Schlagzeug -->
+                    <div
+                        class="group relative aspect-video md:aspect-[21/9] overflow-hidden border border-outline/20 hover:border-brass-gold transition-colors duration-300 cursor-pointer">
+                        <img alt="Schlagzeug"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                            src="assets/images/Schlagzeug.jpg">
+                        <!-- Persistent Title Overlay -->
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-deep-black/90 via-deep-black/50 to-transparent p-6 transition-opacity duration-300 group-hover:opacity-0">
+                            <h4
+                                class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest text-lg">
+                                Schlagzeug</h4>
+                        </div>
+                        <!-- Hover Names Overlay -->
+                        <div
+                            class="absolute inset-0 flex items-center justify-center bg-deep-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center px-4">
+                                <h4
+                                    class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest mb-2 text-lg">
+                                    Schlagzeug</h4>
+                                <p class="font-headline-md text-white font-bold text-2xl md:text-3xl">David</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Galerie Section -->
+        <section class="py-section-gap bg-background border-t border-outline/10" id="galerie">
+            <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+                <!-- Header -->
+                <div class="mb-16 border-b border-brass-gold/30 pb-8">
+                    <span
+                        class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest block mb-4">Fotos
+                        &amp; Videos</span>
+                    <h2
+                        class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-background uppercase">
+                        Galerie</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Momente auf der Bühne und
+                        dahinter.</p>
+                </div>
+
+                <!-- Carousel -->
+                <div class="relative select-none" id="carousel-wrapper">
+
+                    <!-- Main Stage -->
+                    <div id="carousel-stage"
+                        class="relative overflow-hidden rounded-sm bg-surface-container-lowest border border-outline/20"
+                        style="aspect-ratio:16/9;">
+
+                        <!-- Track (slides injected by JS) -->
+                        <div id="carousel-track" class="flex h-full"
+                            style="transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);"></div>
+
+                        <!-- Gradient overlays for aesthetics -->
+                        <div
+                            class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-surface-container-lowest/60 to-transparent pointer-events-none z-10">
+                        </div>
+                        <div
+                            class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-surface-container-lowest/60 to-transparent pointer-events-none z-10">
+                        </div>
+
+                        <!-- Prev Button -->
+                        <button type="button" id="carousel-prev" aria-label="Vorheriges"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-deep-black/70 text-brass-gold border border-brass-gold/40 hover:bg-brass-gold hover:text-deep-black active:scale-95 transition-all duration-200 rounded-sm backdrop-blur-sm">
+                            <span class="material-symbols-outlined text-2xl">chevron_left</span>
+                        </button>
+
+                        <!-- Next Button -->
+                        <button type="button" id="carousel-next" aria-label="Nächstes"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-deep-black/70 text-brass-gold border border-brass-gold/40 hover:bg-brass-gold hover:text-deep-black active:scale-95 transition-all duration-200 rounded-sm backdrop-blur-sm">
+                            <span class="material-symbols-outlined text-2xl">chevron_right</span>
+                        </button>
+
+                        <!-- Counter -->
+                        <div id="carousel-counter"
+                            class="absolute bottom-4 right-4 z-20 font-label-caps text-label-caps text-on-background bg-deep-black/70 backdrop-blur-sm px-3 py-1 rounded-sm border border-outline/30 text-xs">
+                        </div>
+
+                        <!-- Fullscreen / open lightbox -->
+                        <button type="button" id="carousel-fs-btn" aria-label="Vollbild"
+                            class="absolute bottom-4 left-4 z-20 w-10 h-10 flex items-center justify-center bg-deep-black/70 text-brass-gold border border-brass-gold/40 hover:bg-brass-gold hover:text-deep-black transition-all duration-200 rounded-sm backdrop-blur-sm">
+                            <span class="material-symbols-outlined text-xl">fullscreen</span>
+                        </button>
+
+                        <!-- Caption overlay -->
+                        <div id="carousel-caption"
+                            class="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-deep-black/80 via-deep-black/30 to-transparent px-6 pb-16 pt-12 pointer-events-none">
+                            <p id="carousel-caption-text"
+                                class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Dot indicators -->
+                    <div id="carousel-dots" class="flex justify-center gap-2 mt-5"></div>
+
+                    <!-- Thumbnail Strip -->
+                    <div id="carousel-thumbs" class="mt-4 flex gap-3 overflow-x-auto pb-2"
+                        style="scrollbar-width:thin;scrollbar-color:#f2d70b transparent;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="carousel-lightbox"
+            class="hidden fixed inset-0 z-[100] bg-deep-black/95 backdrop-blur-md flex items-center justify-center p-4"
+            role="dialog" aria-modal="true" aria-label="Vollbild-Ansicht">
+            <button type="button" id="lb-close"
+                class="absolute top-5 right-5 w-12 h-12 flex items-center justify-center bg-surface-container text-brass-gold border border-brass-gold/40 hover:bg-brass-gold hover:text-deep-black transition-all duration-200 rounded-sm z-10"
+                aria-label="Schließen">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <button type="button" id="lb-prev"
+                class="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center bg-surface-container text-brass-gold border border-brass-gold/40 hover:bg-brass-gold hover:text-deep-black transition-all duration-200 rounded-sm z-10"
+                aria-label="Vorheriges">
+                <span class="material-symbols-outlined text-3xl">chevron_left</span>
+            </button>
+            <button type="button" id="lb-next"
+                class="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center bg-surface-container text-brass-gold border border-brass-gold/40 hover:bg-brass-gold hover:text-deep-black transition-all duration-200 rounded-sm z-10"
+                aria-label="Nächstes">
+                <span class="material-symbols-outlined text-3xl">chevron_right</span>
+            </button>
+            <div id="lb-media" class="max-w-6xl max-h-full w-full flex flex-col items-center justify-center gap-4">
+            </div>
+            <p id="lb-caption"
+                class="absolute bottom-6 left-1/2 -translate-x-1/2 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">
+            </p>
+        </div>
+
+        <!-- 5. Instagram Section -->
+        <section class="py-section-gap bg-staged-gray border-t border-outline/10" id="instagram">
+            <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+
+                <!-- Header -->
+                <div
+                    class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-brass-gold/30 pb-8">
+                    <div>
+                        <span
+                            class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest block mb-4">Social
+                            Media</span>
+                        <h2
+                            class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-background uppercase">
+                            Instagram</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Aktuelle Einblicke hinter die
+                            Kulissen und auf die Bühne.</p>
+                    </div>
+                    <a href="https://www.instagram.com/vent_ilos/" target="_blank" rel="noopener noreferrer"
+                        class="flex-shrink-0 flex items-center gap-3 bg-brass-gold text-deep-black font-button-text text-button-text font-bold px-6 py-3 rounded-sm uppercase tracking-widest hover:bg-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"
+                            aria-hidden="true">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                        @vent_ilos folgen
+                    </a>
+                </div>
+
+                <!-- Instagram Post Grid -->
+                <!-- ============================================================
+                     SO FÜGST DU EIGENE POSTS EIN:
+                     1. Gehe auf instagram.com zu deinem Post
+                     2. Klicke auf ··· (drei Punkte) → "Einbetten"
+                     3. Kopiere den <blockquote>...</blockquote> Code
+                     4. Ersetze einen der Platzhalter unten damit
+                     ============================================================ -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 instagram-grid">
+
+                    <!-- POST 1: Ersetze diesen Platzhalter mit deinem Embed-Code -->
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/p/DcoONcVDJDg/" data-instgrm-version="14"
+                        style="background:#FFF; border:0; margin:0 auto; max-width:540px; width:100%;">
+                    </blockquote>
+
+                    <script async src="https://www.instagram.com/embed.js"></script>
+
+                    <!-- POST 2: Ersetze diesen Platzhalter mit deinem Embed-Code -->
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Ddg9vxHjC4v"
+                        data-instgrm-version="14"
+                        style="background:#FFF; border:0; margin:0 auto; max-width:540px; width:100%;">
+                    </blockquote>
+
+                    <script async src="https://www.instagram.com/embed.js"></script>
+
+                    <!-- POST 3: Ersetze diesen Platzhalter mit deinem Embed-Code -->
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/p/DV9DZMpjP6m/" data-instgrm-version="14"
+                        style="background:#FFF; border:0; margin:0 auto; max-width:540px; width:100%;">
+                    </blockquote>
+
+                    <script async src="https://www.instagram.com/embed.js"></script>
+
+
+                </div>
+
+                <!-- Instagram Script (wird benötigt um die Embeds zu laden) -->
+                <!-- Diesen Script-Tag NUR einmal behalten, auch wenn mehrere Posts eingebettet werden -->
+                <script async src="//www.instagram.com/embed.js"></script>
+
+                <!-- CTA Banner -->
+                <div
+                    class="mt-12 border border-brass-gold/20 bg-surface-container-low p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-brass-gold/50 transition-colors duration-300">
+                    <div>
+                        <p class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest mb-1">Immer
+                            up to date</p>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">Folge uns auf Instagram für Fotos,
+                            Videos und News direkt von der Bühne.</p>
+                    </div>
+                    <a href="https://www.instagram.com/vent_ilos/" target="_blank" rel="noopener noreferrer"
+                        class="flex-shrink-0 flex items-center gap-3 border-2 border-brass-gold text-brass-gold font-button-text text-button-text font-bold px-6 py-3 rounded-sm uppercase tracking-widest hover:bg-brass-gold hover:text-deep-black transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"
+                            aria-hidden="true">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                        @vent_ilos auf Instagram
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. Contact/Booking Section -->
+        <section class="py-section-gap bg-background" id="kontakt">
+            <div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-full">
+                    <div class="flex flex-col gap-8">
+                        <div class="text-left">
+                            <span
+                                class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest block mb-4">Lass
+                                uns reden</span>
+                            <h2
+                                class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-background uppercase mb-6">
+                                Buchung &amp;<br>Kontakt</h2>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant">Ob Festivalbühne, Bierzelt oder
+                                privates Event – wir bringen die Stimmung. Aktuell nehmen wir Buchungen für die Saison
+                                2027 an.</p>
+                        </div>
+                        <div
+                            class="border-2 border-brass-gold/20 p-8 bg-surface-container-low hover:border-brass-gold transition-colors duration-300">
+                            <h4 class="font-headline-md text-headline-md text-brass-gold uppercase mb-2">
+                                Buchungszeitraum</h4>
+                            <p class="font-body-md text-on-surface mb-6">Wir sind aktuell verfügbar für Termine ab
+                                <strong>März 2027</strong>.
+                            </p>
+                            <h4 class="font-headline-md text-headline-md text-brass-gold uppercase mb-2 mt-8">Direkter
+                                Draht</h4>
+                            <ul class="font-label-caps text-label-caps text-on-surface-variant space-y-4 text-left">
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brass-gold">mail</span>
+                                    booking@ventilos.com</li>
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brass-gold">phone</span> +49 (0) 151
+                                    12345678</li>
+                                <li class="flex items-center gap-3"><span
+                                        class="material-symbols-outlined text-brass-gold">location_on</span> München, DE
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low border border-outline/20 p-8">
+                        <div class="mb-6 pb-4 border-b-2 border-brass-gold inline-block">
+                            <h3
+                                class="font-headline-md text-headline-md text-on-background uppercase font-bold tracking-tight">
+                                Anfrage Senden</h3>
+                        </div>
+                        <form id="booking-form" action="https://formsubmit.co/jonas.ettensperger@outlook.de"
+                            method="POST" class="flex flex-col gap-4">
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_subject" value="Neue Buchungsanfrage - Ventilos Website">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            <!-- Spam protection honeypot -->
+                            <input type="text" name="_honey" style="display:none">
+
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest">Name
+                                    / Veranstalter</label>
+                                <input type="text" name="Name" required
+                                    class="bg-deep-black border border-outline/30 px-4 py-3 text-on-background focus:border-brass-gold focus:ring-1 focus:ring-brass-gold outline-none font-body-md"
+                                    placeholder="Dein Name oder Organisation">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest">E-Mail
+                                    Adresse</label>
+                                <input type="email" name="Email" required
+                                    class="bg-deep-black border border-outline/30 px-4 py-3 text-on-background focus:border-brass-gold focus:ring-1 focus:ring-brass-gold outline-none font-body-md"
+                                    placeholder="name@beispiel.de">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest">Wunschdatum</label>
+                                <input type="date" name="Wunschdatum" required
+                                    class="bg-deep-black border border-outline/30 px-4 py-3 text-on-background focus:border-brass-gold focus:ring-1 focus:ring-brass-gold outline-none font-body-md">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest">Art
+                                    der Veranstaltung</label>
+                                <select name="Veranstaltungsart"
+                                    class="bg-deep-black border border-outline/30 px-4 py-3 text-on-background focus:border-brass-gold focus:ring-1 focus:ring-brass-gold outline-none font-body-md">
+                                    <option value="Festival / Open Air">Festival / Open Air</option>
+                                    <option value="Wirtshaus / Kneipe">Wirtshaus / Kneipe</option>
+                                    <option value="Privatfeier / Hochzeit">Privatfeier / Hochzeit</option>
+                                    <option value="Sonstiges">Sonstiges</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest">Nachricht
+                                    &amp; Details</label>
+                                <textarea name="Nachricht" rows="4" required
+                                    class="bg-deep-black border border-outline/30 px-4 py-3 text-on-background focus:border-brass-gold focus:ring-1 focus:ring-brass-gold outline-none font-body-md"
+                                    placeholder="Erzähl uns etwas über dein Event..."></textarea>
+                            </div>
+                            <button type="submit" id="booking-submit-btn"
+                                class="mt-2 bg-brass-gold text-deep-black font-button-text text-button-text font-bold py-4 px-8 uppercase tracking-widest hover:bg-white transition-colors duration-300 text-center cursor-pointer">
+                                Anfrage Abschicken
+                            </button>
+                            <div id="booking-status" class="hidden p-4 rounded text-sm text-center font-bold"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+        class="bg-surface-container-lowest grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-section-gap w-full border-t-2 border-brass-gold full-width">
+        <div class="flex flex-col gap-4">
+            <span
+                class="font-headline-md text-headline-md text-brass-gold uppercase font-black tracking-tighter">VENTILOS</span>
+            <p class="font-label-caps text-label-caps text-on-secondary-container">© 2026 VENTILOS BRASS BAND. ALL
+                RIGHTS RESERVED.</p>
+        </div>
+        <div class="flex flex-col gap-4 md:items-center">
+            <span class="font-label-caps text-label-caps text-brass-gold uppercase">Follow Us</span>
+            <div class="flex gap-4">
+                <a class="text-on-secondary-container hover:text-primary transition-colors font-body-md text-body-md focus:ring-1 focus:ring-brass-gold"
+                    href="https://www.instagram.com/vent_ilos/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4 md:items-end">
+            <span class="font-label-caps text-label-caps text-brass-gold uppercase">Legal</span>
+            <p class="text-on-secondary-container font-label-caps text-label-caps">Details siehe unten</p>
+        </div>
+    </footer>
+
+    <!-- Impressum & Datenschutz -->
+    <section class="bg-surface-container-lowest border-t border-outline/10 py-12 px-margin-mobile md:px-margin-desktop">
+        <div class="container mx-auto max-w-4xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-4">
+                    <h5 class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest">IMPRESSUM</h5>
+                    <div class="text-on-secondary-container font-body-md text-sm space-y-1">
+                        <p class="font-bold">Angaben gemäß § 5 DDG</p>
+                        <p>Ventilos [Vorname Nachname / verantwortliche Person]</p>
+                        <p>[Straße Hausnummer]</p>
+                        <p>[PLZ Ort]</p>
+                        <p class="mt-2">Kontakt E-Mail: [E-Mail-Adresse]</p>
+                        <p>Telefon: [optional]</p>
+                        <p class="mt-2">Vertreten durch: [falls erforderlich]</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="font-label-caps text-label-caps text-brass-gold uppercase tracking-widest">DATENSCHUTZ
+                    </h5>
+                    <div class="text-on-secondary-container font-body-md text-sm space-y-4">
+                        <p class="font-bold">Datenschutz auf einen Blick</p>
+                        <p>Wir nehmen den Schutz eurer persönlichen Daten ernst. Personenbezogene Daten werden auf
+                            dieser Website nur im Rahmen der geltenden Datenschutzbestimmungen verarbeitet. Weitere
+                            Informationen zur Verarbeitung eurer Daten und zu euren Rechten findet ihr in unserer
+                            vollständigen Datenschutzerklärung.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // =============================================
+        // STATIC GALLERY CAROUSEL
+        // =============================================
+        //
+        // So fügst du eigene Bilder / Videos hinzu:
+        // 1. Lege deine Datei in den Ordner  assets/images/  (oder assets/videos/)
+        // 2. Füge unten einen neuen Eintrag in GALLERY_ITEMS ein:
+        //      { type: 'image', src: 'assets/images/meinbild.jpg',  caption: 'Kurze Beschreibung' }
+        //      { type: 'video', src: 'assets/videos/meinvideo.mp4', caption: 'Kurze Beschreibung' }
+        // 3. Speichern – fertig!
+        //
+        const GALLERY_ITEMS = [
+            { type: 'image', src: 'assets/images/startseite-hintergrund.jpg', caption: 'Live auf der Bühne' },
+            { type: 'image', src: 'assets/images/Wirtshaustour.jpg', caption: 'Wirtshaus Tour 2026' },
+            { type: 'image', src: 'assets/images/hohes-blech.jpg', caption: 'Hohes Blech' },
+            { type: 'image', src: 'assets/images/tiefes-blech.jpg', caption: 'Tiefes Blech' },
+            { type: 'image', src: 'assets/images/Schlagzeug.jpg', caption: 'Schlagzeug' },
+            { type: 'image', src: 'assets/images/39-DSC09947.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/43-DSC09965.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/46-DSC09976.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/62-DSC00020.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/63-DSC00022.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/64-DSC00023.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/73-DSC00053.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/74-DSC00056.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/75-DSC00060.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/76-DSC00065.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/78-DSC00067.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/80-DSC00074.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/81-DSC00080.jpg', caption: 'MCM FEST' },
+            { type: 'image', src: 'assets/images/IMG-20260830-WA0002.jpg', caption: 'Hochzeit' },
+            { type: 'image', src: 'assets/images/IMG-20260830-WA0003.jpg', caption: 'Hochzeit' },
+            { type: 'image', src: 'assets/images/IMG-20260830-WA0007.jpg', caption: 'Hochzeit' },
+            { type: 'image', src: 'assets/images/IMG-20260830-WA0006.jpg', caption: 'Hochzeit' },
+            { type: 'image', src: 'assets/images/IMG-20260830-WA0008.jpg', caption: 'Hochzeit' },
+            { type: 'image', src: 'assets/images/IMG-20260830-WA0012.jpg', caption: 'Hochzeit' },
+            // { type: 'video', src: 'assets/videos/konzert.mp4', caption: 'Konzert Highlights' },
+        ];
+
+        let carouselIndex = 0;
+        const track = document.getElementById('carousel-track');
+        const counter = document.getElementById('carousel-counter');
+        const dotsWrap = document.getElementById('carousel-dots');
+        const thumbsWrap = document.getElementById('carousel-thumbs');
+        const captionEl = document.getElementById('carousel-caption-text');
+        const lbBox = document.getElementById('carousel-lightbox');
+        const lbMedia = document.getElementById('lb-media');
+        const lbCaption = document.getElementById('lb-caption');
+
+        function carouselBuild() {
+            track.innerHTML = '';
+            dotsWrap.innerHTML = '';
+            thumbsWrap.innerHTML = '';
+
+            GALLERY_ITEMS.forEach((item, i) => {
+                // --- Slide ---
+                const slide = document.createElement('div');
+                slide.className = 'flex-shrink-0 w-full h-full flex items-center justify-center bg-surface-container-lowest';
+                slide.style.width = '100%';
+
+                if (item.type === 'image') {
+                    const img = document.createElement('img');
+                    img.src = item.src;
+                    img.alt = item.caption || '';
+                    img.className = 'max-w-full max-h-full object-contain cursor-zoom-in';
+                    img.addEventListener('click', () => lbOpen(i));
+                    slide.appendChild(img);
+                } else {
+                    const vid = document.createElement('video');
+                    vid.src = item.src;
+                    vid.controls = true;
+                    vid.className = 'max-w-full max-h-full object-contain';
+                    slide.appendChild(vid);
+                }
+                track.appendChild(slide);
+
+                // --- Dot ---
+                const dot = document.createElement('button');
+                dot.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === 0 ? 'bg-brass-gold w-6' : 'bg-outline/50 hover:bg-outline');
+                dot.setAttribute('aria-label', `Bild ${i + 1}`);
+                dot.addEventListener('click', () => carouselGo(i));
+                dotsWrap.appendChild(dot);
+
+                // --- Thumbnail ---
+                const thumb = document.createElement('div');
+                thumb.className = 'relative flex-shrink-0 w-20 h-14 overflow-hidden rounded-sm cursor-pointer border-2 transition-all duration-200 ' +
+                    (i === 0 ? 'border-brass-gold scale-105' : 'border-outline/30 opacity-60 hover:opacity-100 hover:border-outline');
+                if (item.type === 'image') {
+                    const timg = document.createElement('img');
+                    timg.src = item.src;
+                    timg.alt = '';
+                    timg.className = 'w-full h-full object-cover';
+                    thumb.appendChild(timg);
+                } else {
+                    thumb.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-surface-container"><span class="material-symbols-outlined text-3xl text-brass-gold">play_circle</span></div>';
+                }
+                thumb.addEventListener('click', () => carouselGo(i));
+                thumbsWrap.appendChild(thumb);
+            });
+
+            carouselUpdate();
+        }
+
+        function carouselUpdate() {
+            track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+            counter.textContent = `${carouselIndex + 1} / ${GALLERY_ITEMS.length}`;
+            captionEl.textContent = GALLERY_ITEMS[carouselIndex]?.caption || '';
+
+            Array.from(dotsWrap.children).forEach((dot, i) => {
+                dot.className = 'rounded-full transition-all duration-300 h-2 ' +
+                    (i === carouselIndex ? 'bg-brass-gold w-6' : 'bg-outline/50 hover:bg-outline w-2');
+            });
+            Array.from(thumbsWrap.children).forEach((th, i) => {
+                th.className = 'relative flex-shrink-0 w-20 h-14 overflow-hidden rounded-sm cursor-pointer border-2 transition-all duration-200 ' +
+                    (i === carouselIndex ? 'border-brass-gold scale-105 shadow-lg shadow-brass-gold/20' : 'border-outline/30 opacity-60 hover:opacity-100 hover:border-outline');
+            });
+
+            const activeThumb = thumbsWrap.children[carouselIndex];
+            if (activeThumb) {
+                // Nur scrollen wenn das Karussell gerade im sichtbaren Bereich ist
+                const stageRect = document.getElementById('carousel-stage').getBoundingClientRect();
+                const isVisible = stageRect.top < window.innerHeight && stageRect.bottom > 0;
+                if (isVisible) {
+                    activeThumb.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+                }
+            }
+
+            // Pause video of previous slide
+            Array.from(track.children).forEach((slide, i) => {
+                const v = slide.querySelector('video');
+                if (v && i !== carouselIndex) v.pause();
+            });
+        }
+
+        function carouselGo(index) {
+            const len = GALLERY_ITEMS.length;
+            carouselIndex = ((index % len) + len) % len;
+            carouselUpdate();
+        }
+
+        document.getElementById('carousel-prev').addEventListener('click', () => carouselGo(carouselIndex - 1));
+        document.getElementById('carousel-next').addEventListener('click', () => carouselGo(carouselIndex + 1));
+        document.getElementById('carousel-fs-btn').addEventListener('click', () => lbOpen(carouselIndex));
+
+        // Auto-advance every 6 seconds (optional – comment out to disable)
+        let autoTimer = setInterval(() => carouselGo(carouselIndex + 1), 6000);
+        document.getElementById('carousel-wrapper').addEventListener('mouseenter', () => clearInterval(autoTimer));
+        document.getElementById('carousel-wrapper').addEventListener('mouseleave', () => { autoTimer = setInterval(() => carouselGo(carouselIndex + 1), 6000); });
+
+        // Touch / swipe
+        let tsX = 0;
+        document.getElementById('carousel-stage').addEventListener('touchstart', e => { tsX = e.touches[0].clientX; }, { passive: true });
+        document.getElementById('carousel-stage').addEventListener('touchend', e => {
+            const d = tsX - e.changedTouches[0].clientX;
+            if (Math.abs(d) > 40) carouselGo(d > 0 ? carouselIndex + 1 : carouselIndex - 1);
+        });
+
+        // --- Lightbox ---
+        function lbOpen(i) {
+            carouselIndex = i;
+            lbBox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lbRender();
+        }
+        function lbClose() {
+            lbBox.classList.add('hidden');
+            lbMedia.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+        function lbRender() {
+            const item = GALLERY_ITEMS[carouselIndex];
+            lbMedia.innerHTML = '';
+            lbCaption.textContent = item?.caption || '';
+            if (item.type === 'image') {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.caption || '';
+                img.className = 'max-w-full max-h-[85vh] object-contain rounded-sm';
+                lbMedia.appendChild(img);
+            } else {
+                const vid = document.createElement('video');
+                vid.src = item.src;
+                vid.controls = true;
+                vid.autoplay = true;
+                vid.className = 'max-w-full max-h-[85vh] rounded-sm';
+                lbMedia.appendChild(vid);
+            }
+        }
+        document.getElementById('lb-close').addEventListener('click', lbClose);
+        document.getElementById('lb-prev').addEventListener('click', () => { carouselGo(carouselIndex - 1); lbRender(); });
+        document.getElementById('lb-next').addEventListener('click', () => { carouselGo(carouselIndex + 1); lbRender(); });
+        lbBox.addEventListener('click', e => { if (e.target === lbBox) lbClose(); });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', e => {
+            const lbVisible = !lbBox.classList.contains('hidden');
+            if (e.key === 'ArrowLeft') { carouselGo(carouselIndex - 1); if (lbVisible) lbRender(); }
+            if (e.key === 'ArrowRight') { carouselGo(carouselIndex + 1); if (lbVisible) lbRender(); }
+            if (e.key === 'Escape' && lbVisible) lbClose();
+        });
+
+        // Build on load
+        carouselBuild();
+        // =============================================
+        // END CAROUSEL
+        // =============================================
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Booking Form AJAX Handler (FormSubmit)
+        const bookingForm = document.getElementById('booking-form');
+        const submitBtn = document.getElementById('booking-submit-btn');
+        const statusDiv = document.getElementById('booking-status');
+
+        if (bookingForm && submitBtn && statusDiv) {
+            bookingForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                const originalText = submitBtn.innerText;
+                submitBtn.innerText = 'Wird gesendet...';
+                statusDiv.className = 'hidden';
+
+                // Check for local file:// protocol
+                if (window.location.protocol === 'file:') {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = originalText;
+                    statusDiv.className = 'p-4 rounded text-sm text-left font-normal bg-amber-950/80 text-amber-200 border border-amber-500/50 space-y-2';
+                    statusDiv.innerHTML = `
+                        <div class="font-bold flex items-center gap-2 text-amber-300">
+                            <span class="material-symbols-outlined text-base">warning</span>
+                            Lokale Datei-Vorschau erkannt (file://)
+                        </div>
+                        <p class="text-xs">FormSubmit verweigert den Versand aus Sicherheitsgründen, wenn HTML-Dateien direkt im Browser per Doppelklick geöffnet werden. Auf einem echten Webserver (z. B. nach dem Hochladen oder mit VS Code <em>Live Server</em>) funktioniert der Versand.</p>
+                        <p class="text-xs font-semibold text-brass-gold">Wichtig: Bitte überprüfe dein Outlook-Postfach (auch Junk/Spam) für den einmaligen Aktivierungslink von FormSubmit.</p>
+                    `;
+                    statusDiv.classList.remove('hidden');
+                    return;
+                }
+
+                try {
+                    const formData = new FormData(bookingForm);
+                    const formObject = Object.fromEntries(formData.entries());
+
+                    const response = await fetch('https://formsubmit.co/ajax/jonas.ettensperger@outlook.de', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formObject)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok && (data.success === true || data.success === 'true')) {
+                        statusDiv.className = 'p-4 rounded text-sm text-center font-bold bg-green-950/70 text-green-300 border border-green-500/50';
+                        statusDiv.innerText = 'Vielen Dank für deine Anfrage! Wir haben deine Nachricht erhalten und melden uns in Kürze bei dir.';
+                        bookingForm.reset();
+                    } else {
+                        let errorMsg = data.message || 'Fehler beim Senden der Anfrage.';
+                        if (errorMsg.toLowerCase().includes('activation')) {
+                            errorMsg = 'Formular noch nicht aktiviert: FormSubmit hat einen Bestätigungslink an deine E-Mail gesendet. Bitte schaue im Postfach (auch Spam/Junk) nach und klicke auf "Activate Form".';
+                        }
+                        statusDiv.className = 'p-4 rounded text-sm text-center font-bold bg-amber-950/70 text-amber-300 border border-amber-500/50';
+                        statusDiv.innerText = errorMsg;
+                    }
+                } catch (error) {
+                    statusDiv.className = 'p-4 rounded text-sm text-center font-bold bg-red-950/70 text-red-300 border border-red-500/50';
+                    statusDiv.innerText = 'Es gab ein Problem bei der Übertragung. Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail an booking@ventilos.com.';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = originalText;
+                    statusDiv.classList.remove('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
